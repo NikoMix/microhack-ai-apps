@@ -1,0 +1,242 @@
+/* =============================================================
+   Zava AI MicroHack — Marp Custom Theme
+   License: MIT | Fonts: system-ui stack (no external download)
+
+   Usage with Marp CLI:
+     npx @marp-team/marp-cli --theme-set slides/themes --theme zava deck.md
+
+   Or reference from a slide's front-matter style: block (self-contained).
+   ============================================================= */
+
+/* ── Root brand tokens ────────────────────────────────────────── */
+:root {
+  --zava-navy:   #0a1628;
+  --zava-blue:   #0078d4;
+  --zava-azure:  #1a6cf5;
+  --zava-green:  #00b050;
+  --zava-amber:  #f0a500;
+  --zava-red:    #e74c3c;
+  --zava-light:  #f0f4f8;
+  --zava-mid:    #1e2d42;
+  --zava-text:   #1a202c;
+  --zava-white:  #ffffff;
+
+  --font-body: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  --font-code: "Cascadia Code", "Fira Code", Consolas, "Courier New", monospace;
+}
+
+/* ── Base slide ────────────────────────────────────────────────── */
+section {
+  font-family: var(--font-body);
+  font-size: 26px;
+  line-height: 1.55;
+  background: var(--zava-navy);
+  color: var(--zava-white);
+  padding: 55px 75px 55px 75px;
+  width: 1280px;
+  height: 720px;
+  box-sizing: border-box;
+}
+
+/* ── Page number ────────────────────────────────────────────────── */
+section::after {
+  font-size: 0.52em;
+  color: rgba(255, 255, 255, 0.35);
+  right: 30px;
+  bottom: 18px;
+}
+
+/* ── Headings ────────────────────────────────────────────────────── */
+section h1 {
+  font-size: 1.75em;
+  font-weight: 700;
+  color: var(--zava-white);
+  border-bottom: 3px solid var(--zava-blue);
+  padding-bottom: 0.12em;
+  margin-bottom: 0.4em;
+  margin-top: 0;
+}
+
+section h2 {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: var(--zava-blue);
+  margin-top: 0.55em;
+  margin-bottom: 0.25em;
+}
+
+section h3 {
+  font-size: 1.0em;
+  font-weight: 600;
+  color: var(--zava-green);
+  margin-top: 0.45em;
+}
+
+/* ── Lead / Title slides ─────────────────────────────────────────── */
+section.lead {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(155deg, var(--zava-navy) 0%, var(--zava-mid) 100%);
+  padding: 60px;
+}
+
+section.lead h1 {
+  font-size: 2.15em;
+  border: none;
+  color: var(--zava-white);
+  margin-bottom: 0.3em;
+}
+
+section.lead h2 {
+  color: rgba(255, 255, 255, 0.72);
+  font-weight: 400;
+  font-size: 1.15em;
+  margin-top: 0;
+}
+
+section.lead p {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.88em;
+  margin: 0.3em 0;
+}
+
+section.lead em {
+  color: var(--zava-green);
+  font-style: normal;
+  font-weight: 700;
+}
+
+/* ── Section dividers ───────────────────────────────────────────── */
+section.section-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--zava-blue) 0%, #005ba1 100%);
+}
+
+section.section-header h1 {
+  font-size: 2.0em;
+  border-color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 0.3em;
+}
+
+section.section-header p {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.9em;
+}
+
+/* ── Lab intro slides ───────────────────────────────────────────── */
+section.lab-intro {
+  background: linear-gradient(135deg, #0e3a1e 0%, var(--zava-mid) 100%);
+  border-left: 8px solid var(--zava-green);
+}
+
+section.lab-intro h1 {
+  color: var(--zava-green);
+  border-color: rgba(0, 176, 80, 0.45);
+}
+
+section.lab-intro h2 {
+  color: rgba(0, 176, 80, 0.85);
+}
+
+/* ── Code blocks ────────────────────────────────────────────────── */
+section code {
+  font-family: var(--font-code);
+  font-size: 0.82em;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+}
+
+section pre {
+  background: rgba(0, 0, 0, 0.42);
+  border-left: 3px solid var(--zava-blue);
+  padding: 0.7em 1em;
+  border-radius: 4px;
+  margin: 0.6em 0;
+  overflow: hidden;
+}
+
+section pre code {
+  background: transparent;
+  font-size: 0.76em;
+  padding: 0;
+}
+
+/* ── Tables ─────────────────────────────────────────────────────── */
+section table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.8em;
+  margin: 0.5em 0;
+}
+
+section thead th {
+  background: var(--zava-blue);
+  color: white;
+  padding: 0.35em 0.65em;
+  text-align: left;
+  font-weight: 600;
+}
+
+section tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.055);
+}
+
+section tbody td {
+  padding: 0.3em 0.65em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  vertical-align: top;
+}
+
+/* ── Lists ──────────────────────────────────────────────────────── */
+section ul {
+  padding-left: 1.3em;
+}
+
+section ul li {
+  margin-bottom: 0.3em;
+}
+
+section ul li::marker {
+  color: var(--zava-green);
+}
+
+section ol li {
+  margin-bottom: 0.28em;
+}
+
+/* ── Typography emphasis ─────────────────────────────────────────── */
+section strong {
+  color: var(--zava-green);
+  font-weight: 700;
+}
+
+section em {
+  color: #7ec8e3;
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* ── Blockquote (callout/tip) ───────────────────────────────────── */
+section blockquote {
+  border-left: 4px solid var(--zava-amber);
+  padding: 0.45em 1em;
+  background: rgba(240, 165, 0, 0.1);
+  border-radius: 0 4px 4px 0;
+  margin: 0.7em 0;
+  font-size: 0.88em;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* ── Footer ─────────────────────────────────────────────────────── */
+section footer {
+  font-size: 0.5em;
+  color: rgba(255, 255, 255, 0.3);
+  bottom: 16px;
+  left: 75px;
+}
