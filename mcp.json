@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json.schemastore.org/mcp.json",
+  "description": "MCP server configuration for the Zava AI MicroHack. Place this file at the repo root (or copy to .vscode/mcp.json for VS Code workspace-scoped config). Loaded automatically by VS Code Copilot and GitHub Copilot agent mode.",
+  "mcpServers": {
+    "zava": {
+      "description": "Zava custom MCP server — exposes product, order, customer, inventory, knowledge and evidence tools backed by the data/ seed files.",
+      "command": "node",
+      "args": [
+        "${workspaceFolder}/src/mcp-zava/dist/index.js"
+      ],
+      "env": {
+        "DATA_DIR": "${workspaceFolder}/data"
+      }
+    },
+    "zava-dev": {
+      "description": "Zava MCP server in dev mode (tsx, no build required). Use during development. Requires: cd src/mcp-zava && npm install.",
+      "command": "node",
+      "args": [
+        "--import",
+        "${workspaceFolder}/src/mcp-zava/node_modules/tsx/dist/esm/index.cjs",
+        "${workspaceFolder}/src/mcp-zava/src/index.ts"
+      ],
+      "env": {
+        "DATA_DIR": "${workspaceFolder}/data",
+        "NODE_OPTIONS": "--no-warnings"
+      }
+    },
+    "microsoft-learn-docs": {
+      "description": "Microsoft Learn / Azure documentation MCP server. Provides up-to-date reference docs for Azure services, SDK APIs, and best practices. No authentication required.",
+      "url": "https://learn.microsoft.com/api/mcp"
+    }
+  }
+}
