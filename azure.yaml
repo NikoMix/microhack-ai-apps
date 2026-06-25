@@ -29,7 +29,7 @@ services:
 
   mcp-zava:
     project: src/mcp-zava
-    language: python
+    language: js
     host: containerapp
     docker:
       path: Dockerfile

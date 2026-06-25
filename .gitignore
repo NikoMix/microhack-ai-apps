@@ -38,6 +38,8 @@ slides/dist/
 # ---- azd / Bicep ----
 .azure/
 *.azd/
+# Compiled ARM output — regenerated from *.bicep by azd / bicep build
+infra/main.json
 
 # ---- OS / editors ----
 .DS_Store
