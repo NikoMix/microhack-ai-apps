@@ -51,7 +51,7 @@ graph LR
 
 ## Quick links
 
-- [Build Contract](../../.microhack/build-contract.md) — authoritative specification
+- [Build Contract](https://github.com/NikoMix/microhack-ai-apps/blob/main/.microhack/build-contract.md) — authoritative specification
 - [Architecture](../architecture.md) — system design
 - [Module B Mapping](../module-b-mapping.md) — lab ↔ control crosswalk
 - [Solutions / answer keys](../solutions/index.md) — facilitator only
