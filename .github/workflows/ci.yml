@@ -1,0 +1,75 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  python:
+    name: Python track
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Check track exists
+        id: guard
+        run: |
+          if [ -d src/python ]; then echo "run=true" >> "$GITHUB_OUTPUT"; else echo "run=false" >> "$GITHUB_OUTPUT"; fi
+      - uses: actions/setup-python@v6
+        if: steps.guard.outputs.run == 'true'
+        with:
+          python-version: "3.12"
+      - name: Install + lint + type-check + test + audit
+        if: steps.guard.outputs.run == 'true'
+        working-directory: src/python
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]" || pip install -r requirements-dev.txt
+          ruff check .
+          ruff format --check .
+          mypy . || true
+          pytest -q
+          pip install pip-audit && pip-audit || true
+
+  dotnet:
+    name: .NET track
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Check track exists
+        id: guard
+        run: |
+          if [ -d src/dotnet ]; then echo "run=true" >> "$GITHUB_OUTPUT"; else echo "run=false" >> "$GITHUB_OUTPUT"; fi
+      - uses: actions/setup-dotnet@v5
+        if: steps.guard.outputs.run == 'true'
+        with:
+          dotnet-version: "9.0.x"
+      - name: Restore + format + build + test + vuln scan
+        if: steps.guard.outputs.run == 'true'
+        working-directory: src/dotnet
+        run: |
+          dotnet restore
+          dotnet format --verify-no-changes || true
+          dotnet build --configuration Release --no-restore
+          dotnet test --configuration Release --no-build --verbosity normal
+          dotnet list package --vulnerable --include-transitive || true
+
+  docs:
+    name: Markdown lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: markdownlint
+        run: npx --yes markdownlint-cli2 "**/*.md" "#node_modules" "#**/obj" "#**/bin" || true

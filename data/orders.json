@@ -1,0 +1,8 @@
+[
+  { "orderId": "ZO-100431", "customer": "Zava eCommerce", "customerName": "Ana Ramirez", "status": "Delivered", "placedOn": "2026-05-28", "items": [ { "productId": "ZAVA-RUN-001", "qty": 1, "size": "M", "color": "Volt" } ], "total": 89.0, "shipTo": "Seattle, WA" },
+  { "orderId": "ZO-100432", "customer": "Zava eCommerce", "customerName": "Tom Becker", "status": "Shipped", "placedOn": "2026-06-19", "items": [ { "productId": "ZAVA-REC-002", "qty": 1, "size": "L", "color": "Black" }, { "productId": "ZAVA-SOC-004", "qty": 2, "size": "M", "color": "Graphite" } ], "total": 207.0, "shipTo": "Austin, TX" },
+  { "orderId": "ZO-100433", "customer": "Zava Retail Stores", "customerName": "Store #14 Portland", "status": "Processing", "placedOn": "2026-06-22", "items": [ { "productId": "ZAVA-BRA-005", "qty": 12, "size": "S", "color": "Black" } ], "total": 948.0, "shipTo": "Portland, OR" },
+  { "orderId": "ZO-100434", "customer": "Zava Wholesale", "customerName": "FitClub Gyms", "status": "Delivered", "placedOn": "2026-05-11", "items": [ { "productId": "ZAVA-TEE-008", "qty": 200, "size": "L", "color": "Charcoal" } ], "total": 11800.0, "shipTo": "Denver, CO" },
+  { "orderId": "ZO-100435", "customer": "Zava eCommerce", "customerName": "Priya Nair", "status": "Return requested", "placedOn": "2026-06-10", "items": [ { "productId": "ZAVA-JKT-003", "qty": 1, "size": "S", "color": "Forest" } ], "total": 249.0, "shipTo": "San Jose, CA" },
+  { "orderId": "ZO-100436", "customer": "Zava eCommerce", "customerName": "Liam O'Connor", "status": "Cancelled", "placedOn": "2026-06-02", "items": [ { "productId": "ZAVA-SHO-006", "qty": 1, "size": "10", "color": "Carbon" } ], "total": 189.0, "shipTo": "Boston, MA" }
+]

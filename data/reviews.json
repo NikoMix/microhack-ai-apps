@@ -1,0 +1,12 @@
+[
+  { "productId": "ZAVA-RUN-001", "customer": "Zava eCommerce", "rating": 5, "title": "Game-changer for marathon training", "text": "The heart-rate fabric is shockingly accurate vs my chest strap. Synced instantly to the app." },
+  { "productId": "ZAVA-RUN-001", "customer": "Zava Retail Stores", "rating": 4, "title": "Great shirt, battery ok", "text": "Comfortable and the data is useful. Wish the battery lasted a full week of runs." },
+  { "productId": "ZAVA-REC-002", "customer": "Zava eCommerce", "rating": 5, "title": "Recovery cues actually work", "text": "The haptic cues after leg day are genuinely helpful. Compression feels premium." },
+  { "productId": "ZAVA-JKT-003", "customer": "Zava Wholesale", "rating": 4, "title": "Bought for our running club", "text": "Auto venting is clever. A few members found sizing a touch small." },
+  { "productId": "ZAVA-SOC-004", "customer": "Zava eCommerce", "rating": 4, "title": "Foot-strike coaching is neat", "text": "Helped me fix my over-pronation. Sensor placement could be comfier." },
+  { "productId": "ZAVA-BRA-005", "customer": "Zava Retail Stores", "rating": 5, "title": "No chest strap needed", "text": "Finally accurate HR without a band. Supportive for HIIT." },
+  { "productId": "ZAVA-SHO-006", "customer": "Zava eCommerce", "rating": 4, "title": "Cushion tracking is smart", "text": "Knowing when to replace them is great. Auto-lace is gimmicky but fun." },
+  { "productId": "ZAVA-TEE-008", "customer": "Zava Wholesale", "rating": 4, "title": "Comfortable eco tee", "text": "Posture nudge is subtle and nice. Ordered 200 for staff uniforms." },
+  { "productId": "ZAVA-SHT-009", "customer": "Zava eCommerce", "rating": 5, "title": "Best training shorts", "text": "Heat mapping shows where I overheat. Very breathable." },
+  { "productId": "ZAVA-GLV-010", "customer": "Zava Retail Stores", "rating": 3, "title": "Good idea, early days", "text": "Rep counting misses some reps on heavy sets. Grip data is interesting." }
+]

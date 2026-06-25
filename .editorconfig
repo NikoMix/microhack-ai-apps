@@ -1,0 +1,35 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 4
+max_line_length = 100
+
+[*.{md,mdx}]
+trim_trailing_whitespace = false
+max_line_length = off
+
+[*.{json,jsonc,yml,yaml,toml}]
+indent_size = 2
+
+[*.{js,ts,tsx,jsx,css,html}]
+indent_size = 2
+
+[*.{cs,csx}]
+indent_size = 4
+# Enforce analyzer-friendly defaults; project-level .editorconfig in src/dotnet may extend.
+dotnet_sort_system_directives_first = true
+csharp_new_line_before_open_brace = all
+
+[*.py]
+indent_size = 4
+
+[*.bicep]
+indent_size = 2
+
+[Makefile]
+indent_style = tab
