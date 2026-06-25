@@ -44,8 +44,8 @@ param location string
 param postgresAdminLogin string = 'pgadmin'
 
 @secure()
-@description('PostgreSQL admin password. Only used during initial provisioning; password auth is disabled afterwards. Set via: azd env set POSTGRES_ADMIN_PASSWORD <value>')
-param postgresAdminPassword string
+@description('PostgreSQL admin password. Only used during initial provisioning; password auth is disabled afterwards (Entra-only). Auto-generated per deployment; override via: azd env set POSTGRES_ADMIN_PASSWORD <value>')
+param postgresAdminPassword string = newGuid()
 
 // ─── Variables ────────────────────────────────────────────────────────────────
 
