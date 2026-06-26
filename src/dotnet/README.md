@@ -34,6 +34,7 @@ dotnet run --project Zava.Api
 The API starts on <http://localhost:5000>.
 
 **Verify:**
+
 ```bash
 curl http://localhost:5000/health   # {"status":"ok"}
 curl http://localhost:5000/agents   # [{key,name,description},...]
@@ -160,7 +161,7 @@ All routes match the shared contract (identical to the Python track).
 
 ### POST /chat/stream example (SSE)
 
-```
+```text
 data: {"event":"start","agent":"merchandiser","traceId":"..."}
 
 data: {"event":"token","text":"The ZavaRun Pro "}
@@ -173,7 +174,7 @@ data: {"event":"end"}
 
 ## Architecture
 
-```
+```text
 ┌─────────────────────────────────────────────────┐
 │              Zava Minimal API                    │
 │  GET /health  GET /agents  POST /chat  /stream   │
@@ -208,6 +209,7 @@ The `trust` agent's `generate_evidence` tool assembles audit evidence for the
 **AI Applications on Microsoft Azure** Advanced Specialization (controls B.1.1–B.4.2).
 
 Call it via:
+
 ```bash
 curl -X POST http://localhost:5000/chat \
   -H "Content-Type: application/json" \
