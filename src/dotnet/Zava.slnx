@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Zava.Api/Zava.Api.csproj" />
+  <Project Path="Zava.Tests/Zava.Tests.csproj" />
+</Solution>
