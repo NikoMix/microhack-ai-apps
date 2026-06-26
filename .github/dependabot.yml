@@ -16,6 +16,14 @@ updates:
       python-deps:
         patterns: ["*"]
 
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    groups:
+      docs-deps:
+        patterns: ["*"]
+
   - package-ecosystem: "nuget"
     directory: "/src/dotnet"
     schedule:

@@ -32,7 +32,7 @@ jobs:
       - name: Build docs site (MkDocs Material, strict)
         run: |
           python -m pip install --upgrade pip
-          pip install mkdocs-material==9.7.6
+          pip install -r requirements-docs.txt
           mkdocs build --strict -d site
       - name: Build Marp deck into site/slides (HTML required; PDF/PPTX best-effort)
         working-directory: slides

@@ -9,7 +9,7 @@
 |---|---|
 | Full run-of-show with timing | [Run of Show](run-of-show.md) |
 | Environment & prerequisites | [Prerequisites](prerequisites.md) |
-| Per-lab talk track + demo cues | [Talk Tracks](talk-tracks/) |
+| Per-lab talk track + demo cues | [Talk Tracks](talk-tracks/index.md) |
 | Common problems & fixes | [Pitfalls & Fixes](pitfalls.md) |
 | Room + A/V setup checklist | [A/V & Room Checklist](av-room-checklist.md) |
 | How to re-deliver this as TTT | [Train-the-Trainer Notes](ttt-notes.md) |
