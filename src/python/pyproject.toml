@@ -29,8 +29,19 @@ dependencies = [
     "pydantic-settings>=2.7.0",
     "python-dotenv>=1.0.1",
 
-    # ---------- Microsoft Agent Framework ----------
-    "agent-framework==1.9.0",
+    # ---------- Microsoft Agent Framework (core + only the connectors we use) ----------
+    # We depend on the specific connector packages instead of the `agent-framework`
+    # meta-package. The meta-package resolves to `agent-framework-core[all]`, which
+    # drags in every connector — including the unversioned, pre-release-only
+    # `agent-framework-azure-ai-search` — making installs non-deterministic and
+    # forcing a global pre-release opt-in. This app only uses the OpenAI-compatible
+    # client (GitHub Models / Azure OpenAI) and the Azure AI Foundry client, so we
+    # pin exactly those three. The single remaining pre-release in the closure is
+    # `azure-ai-inference==1.0.0b9` (the official Foundry inference SDK, which has no
+    # stable release yet); it is pulled transitively by an explicit pre-release
+    # specifier, so both pip and uv resolve it without a global `--pre` flag.
+    "agent-framework-core==1.9.0",
+    "agent-framework-openai==1.8.2",
     "agent-framework-foundry==1.8.2",
 
     # ---------- OpenAI SDK (provider wiring) ----------

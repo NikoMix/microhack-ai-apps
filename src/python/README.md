@@ -9,7 +9,7 @@ Foundry** via a single environment variable.
 
 ## Architecture
 
-```
+```text
 POST /chat
     └─► Orchestrator agent (HandoffWorkflow)
             ├─► Concierge   (get_order · get_product · search_knowledge · create_return)

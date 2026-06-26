@@ -28,17 +28,18 @@ jobs:
         if: steps.guard.outputs.run == 'true'
         with:
           python-version: "3.12"
-      - name: Install + lint + type-check + test + audit
+      - name: Install + lint + type-check + security + test + audit
         if: steps.guard.outputs.run == 'true'
         working-directory: src/python
         run: |
           python -m pip install --upgrade pip
-          pip install -e ".[dev]" || pip install -r requirements-dev.txt
+          pip install -e ".[dev]"
           ruff check .
           ruff format --check .
-          mypy . || true
+          mypy app
+          bandit -c pyproject.toml -r app -q
           pytest -q
-          pip install pip-audit && pip-audit || true
+          pip-audit
 
   dotnet:
     name: .NET track
@@ -58,10 +59,14 @@ jobs:
         working-directory: src/dotnet
         run: |
           dotnet restore
-          dotnet format --verify-no-changes || true
+          dotnet format --verify-no-changes
           dotnet build --configuration Release --no-restore
           dotnet test --configuration Release --no-build --verbosity normal
-          dotnet list package --vulnerable --include-transitive || true
+          # Fail the job if any vulnerable (incl. transitive) NuGet packages are reported.
+          dotnet list package --vulnerable --include-transitive 2>&1 | tee vuln.txt
+          if grep -Eiq "(Critical|High|Moderate|Low)" vuln.txt; then
+            echo "::error::Vulnerable NuGet packages detected"; exit 1;
+          fi
 
   docs:
     name: Markdown lint
@@ -72,4 +77,4 @@ jobs:
         with:
           node-version: "20"
       - name: markdownlint
-        run: npx --yes markdownlint-cli2@0.22.1 "**/*.md" "#**/node_modules" "#**/dist" "#**/obj" "#**/bin" "#**/site"
+        run: npx --yes markdownlint-cli2@0.22.1 "**/*.md" "#**/node_modules" "#**/dist" "#**/obj" "#**/bin" "#**/site" "#**/.venv"
