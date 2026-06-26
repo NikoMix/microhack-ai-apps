@@ -1,0 +1,15 @@
+{
+  "name": "zava-microhack-slides",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Marp slide deck for the Zava AI MicroHack (Module B Train-the-Trainer).",
+  "license": "MIT",
+  "scripts": {
+    "build": "marp zava-microhack-deck.md -o ../site/slides/zava-microhack-deck.html --html",
+    "build:pdf": "marp zava-microhack-deck.md -o ../site/slides/zava-microhack-deck.pdf --pdf --allow-local-files",
+    "build:pptx": "marp zava-microhack-deck.md -o ../site/slides/zava-microhack-deck.pptx --pptx"
+  },
+  "devDependencies": {
+    "@marp-team/marp-cli": "4.4.0"
+  }
+}

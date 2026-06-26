@@ -6,11 +6,13 @@ Framework**, while producing audit evidence for the *AI Applications on Microsof
 Specialization (**Module B**, controls B.1.1–B.4.2).
 
 ## Context you should always load
+
 - **`.microhack/build-contract.md`** — the authoritative build spec (paths, env vars, HTTP API,
   agents, Azure resources, coding standards). Conform to it.
 - **`docs/module-b-mapping.md`** — how lab work maps to audit controls.
 
 ## The product
+
 - Scenario company: **Zava** (intelligent athletic apparel retailer).
 - Agents: `concierge`, `merchandiser`, `operations`, `trust`, `orchestrator` — same in both tracks.
 - Two tracks, identical behaviour & HTTP API: **Python** (`src/python`, FastAPI + `agent-framework`)
@@ -18,6 +20,7 @@ Specialization (**Module B**, controls B.1.1–B.4.2).
 - Custom **Zava MCP server** in `src/mcp-zava`.
 
 ## Non-negotiable standards
+
 - **Modular inference**: chat + embeddings work on **GitHub Models** (default, free), **Azure
   OpenAI**, or **Azure AI Foundry**, selected by `INFERENCE_PROVIDER` / `EMBEDDINGS_PROVIDER`. No
   image generation. Never hardcode a provider.
@@ -33,11 +36,13 @@ Specialization (**Module B**, controls B.1.1–B.4.2).
   (.NET); `markdownlint` for docs. `.editorconfig` is authoritative.
 
 ## When generating Azure or AI code
+
 1. Call the Azure **AI app best practices** tool (`get_azure_bestpractices_ai_app`) first.
 2. Prefer the **Microsoft Agent Framework** patterns (`AIProjectClient` → agent) over legacy SDKs.
 3. Verify current APIs/models via Microsoft Learn docs / MCP — do not guess versions.
 
 ## Conventions
+
 - Keep both tracks behaviourally identical; if you change the API, change both + the contract.
 - Every `src/*` directory has a README covering **GitHub-Models** and **Azure** run modes.
 - Write educational, well-commented code — learners read it.

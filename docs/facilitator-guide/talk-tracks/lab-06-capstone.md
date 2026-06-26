@@ -114,16 +114,19 @@ The Zava MCP server (`src/mcp-zava/`) exposes:
    - Test in Copilot Chat
 
 2. **Part B (15 min):** Start the Zava MCP server and test
+
    ```bash
    cd src/mcp-zava && npm start
    # Then in Copilot Chat: ask about a Zava product
    ```
 
 3. **Part C (10 min):** Generate the full evidence package
+
    ```bash
    curl -X POST http://localhost:8000/chat \
      -d '{"message": "Generate Module B evidence for all controls"}'
    ```
+
    Review the output structure and the evidence index.
 
 ### Demo cue — Copilot + MCP live

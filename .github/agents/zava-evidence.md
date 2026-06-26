@@ -75,7 +75,7 @@ Invoke it in VS Code Copilot Chat with `@zava-evidence` when you need to:
 
 ## Example prompts
 
-```
+```text
 @zava-evidence Generate evidence for Contoso, labs 1-6 completed
 @zava-evidence What do I need for B.2.2 customer diversity?
 @zava-evidence List the artefacts I need to upload to Partner Center

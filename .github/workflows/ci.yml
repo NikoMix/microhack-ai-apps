@@ -72,4 +72,4 @@ jobs:
         with:
           node-version: "20"
       - name: markdownlint
-        run: npx --yes markdownlint-cli2 "**/*.md" "#node_modules" "#**/obj" "#**/bin" || true
+        run: npx --yes markdownlint-cli2@0.22.1 "**/*.md" "#**/node_modules" "#**/dist" "#**/obj" "#**/bin" "#**/site"

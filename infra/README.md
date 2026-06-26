@@ -9,7 +9,7 @@ All resources use **Managed Identity / DefaultAzureCredential** — no API keys,
 with secrets, no local auth. A single **User-Assigned Managed Identity** (UAMI) is granted
 least-privilege roles on every service.
 
-```
+```text
 Subscription
 └── rg-zava-<env>
     ├── id-zava-<token>            User-Assigned Managed Identity

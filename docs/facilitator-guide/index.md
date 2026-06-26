@@ -67,8 +67,8 @@ Full control-to-artifact mapping: [`docs/module-b-mapping.md`](../module-b-mappi
 
 - **Agenda:** [`docs/agenda.md`](../agenda.md)
 - **Architecture:** [`docs/architecture.md`](../architecture.md)
-- **Build contract:** [`.microhack/build-contract.md`](../../.microhack/build-contract.md)
-- **Slides:** [`slides/zava-microhack-deck.md`](../../slides/zava-microhack-deck.md)
+- **Build contract:** [`.microhack/build-contract.md`](https://github.com/NikoMix/microhack-ai-apps/blob/main/.microhack/build-contract.md)
+- **Slides:** [`slides/zava-microhack-deck.md`](https://github.com/NikoMix/microhack-ai-apps/blob/main/slides/zava-microhack-deck.md)
 - **Labs:** `docs/labs/` (student-facing)
 - **Solutions:** `docs/solutions/` (reference implementations)
 - **Evidence templates:** `docs/evidence-templates/`

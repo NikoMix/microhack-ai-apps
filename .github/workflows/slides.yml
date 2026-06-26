@@ -23,26 +23,27 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
-      - name: Build Marp decks (HTML + PDF + PPTX)
-        run: |
-          mkdir -p site/slides
-          if [ -d slides ] && ls slides/*.md >/dev/null 2>&1; then
-            for f in slides/*.md; do
-              base=$(basename "$f" .md)
-              npx --yes @marp-team/marp-cli@latest "$f" -o "site/slides/$base.html" --html || true
-              npx --yes @marp-team/marp-cli@latest "$f" -o "site/slides/$base.pdf" --pdf --allow-local-files || true
-              npx --yes @marp-team/marp-cli@latest "$f" -o "site/slides/$base.pptx" --pptx || true
-            done
-          fi
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
-      - name: Build docs site (MkDocs Material)
+      - name: Install slide tooling (pinned Marp CLI)
+        working-directory: slides
+        run: npm ci
+      - name: Build docs site (MkDocs Material, strict)
         run: |
-          if [ -f mkdocs.yml ]; then
-            pip install mkdocs-material
-            mkdocs build -d site --site-dir site || mkdocs build || true
-          fi
+          python -m pip install --upgrade pip
+          pip install mkdocs-material==9.7.6
+          mkdocs build --strict -d site
+      - name: Build Marp deck into site/slides (HTML required; PDF/PPTX best-effort)
+        working-directory: slides
+        run: |
+          mkdir -p ../site/slides
+          for f in *.md; do
+            base=$(basename "$f" .md)
+            npx marp "$f" -o "../site/slides/$base.html" --html
+            npx marp "$f" -o "../site/slides/$base.pdf" --pdf --allow-local-files || true
+            npx marp "$f" -o "../site/slides/$base.pptx" --pptx || true
+          done
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site

@@ -22,4 +22,4 @@
 **Remit to:** FlexCircuit Labs, Account 8841-2290, routing on file.
 **Warranty:** 24 months on assembled modules; RMA within 30 days for DOA units.
 
-Questions: billing@flexcircuit.example · Ref INV-FC-88231
+Questions: <billing@flexcircuit.example> · Ref INV-FC-88231

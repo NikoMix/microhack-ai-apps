@@ -60,7 +60,7 @@ npm run smoke-test
 
 Expected output (abridged):
 
-```
+```text
 🔨 Building Zava MCP Server...
 ✅ Build succeeded.
 
@@ -125,7 +125,7 @@ curl http://localhost:3000/health
 
 ## Architecture
 
-```
+```text
 mcp-zava/
 ├── src/
 │   ├── index.ts          Entry point — selects STDIO or HTTP transport

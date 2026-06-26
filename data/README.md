@@ -16,11 +16,13 @@ Azure AI Search in the Azure-native labs. No real personal data — names and fi
 | `suppliers/*.md` | PO + invoice samples | Operations (Doc Intelligence) | Blob (Doc Intelligence input) |
 
 ## Embedding contract
+
 - Knowledge docs are chunked and embedded with **1536-dim** vectors (`text-embedding-3-small`).
 - pgvector column: `vector(1536)`; AI Search vector field dimension: **1536**.
 - Keep this dimension consistent across providers (GitHub Models / Azure OpenAI / Foundry).
 
 ## Conventions
+
 - IDs are stable (`ZAVA-*`, `ZO-*`, `SUP-*`) so labs and tests can reference them deterministically.
 - Currency is USD. Dates are ISO `YYYY-MM-DD`.
 - Add new items by following the existing schema; keep JSON valid (CI lints these).

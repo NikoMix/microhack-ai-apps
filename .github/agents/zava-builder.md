@@ -86,7 +86,7 @@ Invoke it in VS Code Copilot Chat with `@zava-builder` when you need to:
 
 ## Example prompts
 
-```
+```text
 @zava-builder Scaffold the concierge agent with get_order and search_knowledge tools
 @zava-builder Add a restock_suggestion tool to the operations agent
 @zava-builder Why is my DefaultAzureCredential failing in the dev container?

@@ -36,35 +36,41 @@ A provider abstraction selects the chat + embedding backend at runtime via env v
 generation** anywhere (so GitHub Models / AOAI / Foundry are all valid). Default = GitHub Models
 (free) so labs run with zero Azure cost; flip a single env var to use Azure.
 
-```
+```ini
 INFERENCE_PROVIDER = github | azure-openai | foundry      # default: github
 EMBEDDINGS_PROVIDER = github | azure-openai | foundry     # default: github
 ```
 
 ### GitHub Models (default)
-```
+
+```ini
 GITHUB_TOKEN=<PAT or Actions token with models:read>
 GITHUB_MODELS_ENDPOINT=https://models.github.ai/inference
 GITHUB_MODELS_CHAT_MODEL=openai/gpt-4o-mini
 GITHUB_MODELS_EMBEDDING_MODEL=openai/text-embedding-3-small
 ```
+
 GitHub Models is **OpenAI-compatible** → use the framework's OpenAI chat client with `base_url`/
 endpoint override + the token. Verify the current endpoint/model ids against GitHub Models docs.
 
 ### Azure OpenAI
-```
+
+```ini
 AZURE_OPENAI_ENDPOINT=https://<acct>.openai.azure.com
 AZURE_OPENAI_CHAT_DEPLOYMENT=gpt-4o-mini
 AZURE_OPENAI_EMBEDDING_DEPLOYMENT=text-embedding-3-small
 AZURE_OPENAI_API_VERSION=<latest GA>
 ```
+
 Auth: **DefaultAzureCredential / Managed Identity — NEVER an API key.**
 
 ### Azure AI Foundry (recommended Azure path)
-```
+
+```ini
 AZURE_AI_FOUNDRY_PROJECT_ENDPOINT=https://<proj>.services.ai.azure.com/api/projects/<name>
 AZURE_AI_FOUNDRY_CHAT_DEPLOYMENT=gpt-4o-mini
 ```
+
 Auth: DefaultAzureCredential. Prefer the `AIProjectClient` → `.AsAIAgent()` / Foundry agent pattern
 per Azure AI-app best practices (call `get_azure_bestpractices_ai_app`).
 
@@ -87,7 +93,7 @@ track-agnostic:
 
 ## 5. Repository layout & ownership (disjoint → conflict-free)
 
-```
+```text
 /                      README, LICENSE, .gitignore, .editorconfig, mkdocs.yml      [orchestrator]
 .devcontainer/         polyglot dev container                                       [orchestrator]
 .github/               copilot-instructions, dependabot, workflows, ISSUE_TEMPLATE  [orchestrator]
@@ -127,7 +133,8 @@ front door). Use **latest API versions**; validate with `azd provision --preview
 Do NOT actually deploy in CI (cost) — validation only.
 
 ### Canonical env vars emitted by infra (azd outputs)
-```
+
+```text
 COSMOS_ENDPOINT, COSMOS_DATABASE=zava
 POSTGRES_HOST, POSTGRES_DB=zava, POSTGRES_PORT=5432
 AZURE_SEARCH_ENDPOINT, AZURE_SEARCH_INDEX=zava-knowledge

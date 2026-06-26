@@ -1,4 +1,4 @@
-# Purchase Order — SmartTextile Co.
+# Purchase Order — SmartTextile Co
 
 **Supplier:** SmartTextile Co.
 **Supplier ID:** SUP-ST-0098
@@ -23,4 +23,4 @@
 **Notes:** All conductive materials must be RoHS-compliant and accompanied by a material safety
 data sheet. Defect tolerance ≤ 0.5%. Late delivery penalty 2% per week per the MSA.
 
-Authorised by: J. Okafor (Zava Procurement) · Contact: procurement@zava.example
+Authorised by: J. Okafor (Zava Procurement) · Contact: <procurement@zava.example>

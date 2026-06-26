@@ -27,11 +27,12 @@ a point-in-time snapshot of your audit evidence.
 
 With the MCP server running and `@zava-evidence` agent available:
 
-```
+```text
 @zava-evidence Generate evidence for <Your Company Name>, labs 1-6 completed
 ```
 
 The agent will:
+
 1. Call `get_customers` to retrieve customer-diversity data
 2. Call `generate_evidence` with your partner name and completed labs
 3. Present the structured evidence document

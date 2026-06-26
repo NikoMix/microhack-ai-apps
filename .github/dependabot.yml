@@ -24,7 +24,7 @@ updates:
       dotnet-deps:
         patterns: ["*"]
 
-  - package-ecosystem: "nuget"
+  - package-ecosystem: "npm"
     directory: "/src/mcp-zava"
     schedule:
       interval: "weekly"
