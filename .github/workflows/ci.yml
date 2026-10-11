@@ -19,12 +19,12 @@ jobs:
     name: Python track
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - name: Check track exists
         id: guard
         run: |
           if [ -d src/python ]; then echo "run=true" >> "$GITHUB_OUTPUT"; else echo "run=false" >> "$GITHUB_OUTPUT"; fi
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@v7
         if: steps.guard.outputs.run == 'true'
         with:
           python-version: "3.12"
@@ -45,12 +45,12 @@ jobs:
     name: .NET track
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - name: Check track exists
         id: guard
         run: |
           if [ -d src/dotnet ]; then echo "run=true" >> "$GITHUB_OUTPUT"; else echo "run=false" >> "$GITHUB_OUTPUT"; fi
-      - uses: actions/setup-dotnet@v5
+      - uses: actions/setup-dotnet@v6
         if: steps.guard.outputs.run == 'true'
         with:
           dotnet-version: "10.0.x"
@@ -72,8 +72,8 @@ jobs:
     name: Markdown lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: "20"
       - name: markdownlint
