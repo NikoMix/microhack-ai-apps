@@ -40,9 +40,9 @@ dependencies = [
     # `azure-ai-inference==1.0.0b9` (the official Foundry inference SDK, which has no
     # stable release yet); it is pulled transitively by an explicit pre-release
     # specifier, so both pip and uv resolve it without a global `--pre` flag.
-    "agent-framework-core==1.9.0",
-    "agent-framework-openai==1.8.2",
-    "agent-framework-foundry==1.8.2",
+    "agent-framework-core==1.21.0",
+    "agent-framework-openai==1.16.0",
+    "agent-framework-foundry==1.14.1",
 
     # ---------- OpenAI SDK (provider wiring) ----------
     "openai>=1.60.0",
