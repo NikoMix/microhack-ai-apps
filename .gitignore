@@ -1,0 +1,52 @@
+# ---- Secrets & local env ----
+*.env
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+azure.env
+.azure/
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+.coverage
+htmlcov/
+
+# ---- .NET ----
+bin/
+obj/
+*.user
+.vs/
+TestResults/
+*.trx
+
+# ---- Node / Marp ----
+node_modules/
+slides/dist/
+*.tsbuildinfo
+
+# ---- azd / Bicep ----
+.azure/
+*.azd/
+# Compiled ARM output — regenerated from *.bicep by azd / bicep build
+infra/main.json
+
+# ---- OS / editors ----
+.DS_Store
+Thumbs.db
+.idea/
+*.swp
+
+# ---- Docs site ----
+site/
+docs/.cache/

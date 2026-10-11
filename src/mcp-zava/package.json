@@ -1,0 +1,39 @@
+{
+  "name": "@zava/mcp-server",
+  "version": "1.0.0",
+  "description": "Zava AI Agent Platform — Model Context Protocol server exposing Zava tools",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "start:http": "node dist/index.js --http",
+    "dev": "tsx src/index.ts",
+    "dev:http": "tsx src/index.ts --http",
+    "smoke-test": "npm run build && node smoke-test.mjs",
+    "lint": "eslint src",
+    "typecheck": "tsc --noEmit",
+    "audit": "npm audit --audit-level=moderate",
+    "format": "prettier --write 'src/**/*.ts' 'smoke-test.mjs'"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "express": "^4.22.2",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.15.29",
+    "@typescript-eslint/eslint-plugin": "^8.33.1",
+    "@typescript-eslint/parser": "^8.33.1",
+    "eslint": "^9.28.0",
+    "globals": "^17.7.0",
+    "prettier": "^3.5.3",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

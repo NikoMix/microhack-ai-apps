@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ZAVA-BU-RETAIL",
+    "name": "Zava Retail Stores",
+    "type": "Physical retail",
+    "industry": "Retail",
+    "associationType": "PAL",
+    "primaryPillars": ["App Platform", "Data"],
+    "description": "120 brick-and-mortar Zava stores with associate-facing apps and POS integration."
+  },
+  {
+    "id": "ZAVA-BU-ECOM",
+    "name": "Zava eCommerce",
+    "type": "Direct-to-consumer web/mobile",
+    "industry": "Retail / eCommerce",
+    "associationType": "DPOR",
+    "primaryPillars": ["AI", "App Platform", "Data"],
+    "description": "Global storefront and mobile app with AI concierge and personalised recommendations."
+  },
+  {
+    "id": "ZAVA-BU-WHOLESALE",
+    "name": "Zava Wholesale",
+    "type": "B2B",
+    "industry": "Wholesale / Sports",
+    "associationType": "CSP",
+    "primaryPillars": ["Data", "App Platform"],
+    "description": "Bulk sales to gyms, clubs, and corporate wellness programs."
+  }
+]

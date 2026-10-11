@@ -1,0 +1,35 @@
+name: Infra Validate
+
+on:
+  push:
+    branches: ["main"]
+    paths: ["infra/**", "azure.yaml", ".github/workflows/infra-validate.yml"]
+  pull_request:
+    branches: ["main"]
+    paths: ["infra/**", "azure.yaml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  bicep:
+    name: Bicep build + lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Guard
+        id: guard
+        run: |
+          if [ -f infra/main.bicep ]; then echo "run=true" >> "$GITHUB_OUTPUT"; else echo "run=false" >> "$GITHUB_OUTPUT"; fi
+      - name: Install Bicep CLI
+        if: steps.guard.outputs.run == 'true'
+        run: |
+          curl -Lo bicep https://github.com/Azure/bicep/releases/latest/download/bicep-linux-x64
+          chmod +x bicep && sudo mv bicep /usr/local/bin/bicep
+          bicep --version
+      - name: Build + lint
+        if: steps.guard.outputs.run == 'true'
+        run: |
+          bicep build infra/main.bicep
+          bicep lint infra/main.bicep

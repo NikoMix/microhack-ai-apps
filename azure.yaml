@@ -1,0 +1,43 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
+# Zava AI Agent Platform — azd configuration
+# WS1 (Infrastructure) owns this file.
+# Three services, all hosted on Azure Container Apps, authenticated via user-assigned Managed Identity.
+
+name: zava-ai-agent-platform
+metadata:
+  template: zava-ai-agent-platform@1.0.0
+
+# ── Services ──────────────────────────────────────────────────────────────────
+# Each service maps to a Container App tagged with azd-service-name.
+# azd builds the Dockerfile, pushes to ACR, and updates the container app image.
+services:
+  api-python:
+    project: src/python
+    language: python
+    host: containerapp
+    docker:
+      path: Dockerfile
+      context: .
+
+  api-dotnet:
+    project: src/dotnet
+    language: dotnet
+    host: containerapp
+    docker:
+      path: Dockerfile
+      context: .
+
+  mcp-zava:
+    project: src/mcp-zava
+    language: js
+    host: containerapp
+    docker:
+      path: Dockerfile
+      context: .
+
+# ── Infrastructure ────────────────────────────────────────────────────────────
+# azd uses infra/main.bicep (subscription scope) to provision all Azure resources.
+# The canonical output env vars are declared there and injected into each container app.
+infra:
+  path: infra
+  module: main

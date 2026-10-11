@@ -1,0 +1,55 @@
+site_name: Zava AI MicroHack
+site_description: >-
+  1-day, Train-the-Trainer microhack — build enterprise AI agents on Microsoft Azure and
+  produce Advanced Specialization (Module B) audit evidence.
+site_url: https://NikoMix.github.io/microhack-ai-apps/
+repo_url: https://github.com/NikoMix/microhack-ai-apps
+repo_name: NikoMix/microhack-ai-apps
+docs_dir: docs
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: deep purple
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: deep purple
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.footer
+    - content.code.copy
+    - content.code.annotate
+    - toc.follow
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
+  - pymdownx.emoji
+
+# nav is auto-generated from the docs/ tree so workstream sessions can add pages freely.

@@ -1,0 +1,127 @@
+# =============================================================================
+# Zava AI Agent Platform — Python Track
+# FastAPI + Microsoft Agent Framework (agent-framework 1.9.x)
+# Build contract: .microhack/build-contract.md
+# =============================================================================
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "zava-ai-python"
+version = "0.1.0"
+description = "Zava AI Agent Platform — Python track (FastAPI + Microsoft Agent Framework)"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+keywords = ["ai", "agents", "fastapi", "azure", "zava"]
+
+dependencies = [
+    # ---------- Web framework ----------
+    "fastapi>=0.115.5",
+    "uvicorn[standard]>=0.34.0",
+    "sse-starlette>=2.2.1",
+    "python-multipart>=0.0.20",
+
+    # ---------- Config / validation ----------
+    "pydantic>=2.10.6",
+    "pydantic-settings>=2.7.0",
+    "python-dotenv>=1.0.1",
+
+    # ---------- Microsoft Agent Framework (core + only the connectors we use) ----------
+    # We depend on the specific connector packages instead of the `agent-framework`
+    # meta-package. The meta-package resolves to `agent-framework-core[all]`, which
+    # drags in every connector — including the unversioned, pre-release-only
+    # `agent-framework-azure-ai-search` — making installs non-deterministic and
+    # forcing a global pre-release opt-in. This app only uses the OpenAI-compatible
+    # client (GitHub Models / Azure OpenAI) and the Azure AI Foundry client, so we
+    # pin exactly those three. The single remaining pre-release in the closure is
+    # `azure-ai-inference==1.0.0b9` (the official Foundry inference SDK, which has no
+    # stable release yet); it is pulled transitively by an explicit pre-release
+    # specifier, so both pip and uv resolve it without a global `--pre` flag.
+    "agent-framework-core==1.9.0",
+    "agent-framework-openai==1.8.2",
+    "agent-framework-foundry==1.8.2",
+
+    # ---------- OpenAI SDK (provider wiring) ----------
+    "openai>=1.60.0",
+
+    # ---------- Azure SDKs (Azure mode only; lazily imported) ----------
+    "azure-identity>=1.19.0",
+    "azure-cosmos>=4.9.0",
+    "asyncpg>=0.30.0",
+    "pgvector>=0.3.6",
+    "azure-ai-projects>=1.0.0",
+    "azure-ai-contentsafety>=1.0.0",
+    "azure-ai-documentintelligence>=1.0.0",
+    "azure-search-documents>=11.6.0",
+
+    # ---------- OpenTelemetry → Application Insights ----------
+    "azure-monitor-opentelemetry>=1.6.4",
+    "opentelemetry-instrumentation-fastapi>=0.50b0",
+    "opentelemetry-api>=1.29.0",
+    "opentelemetry-sdk>=1.29.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3.4",
+    "pytest-asyncio>=0.25.0",
+    "httpx>=0.28.1",
+    "respx>=0.22.0",
+    "ruff>=0.9.0",
+    "mypy>=1.14.0",
+    "pip-audit>=2.7.3",
+    "bandit[toml]>=1.8.3",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["app"]
+
+# --------------------------------------------------------------------------
+# Ruff — lint + format
+# --------------------------------------------------------------------------
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "UP", "B", "ASYNC"]
+ignore = [
+    "E501",
+    "B008",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S", "ANN", "N"]
+"scripts/*" = ["S", "ANN", "T201"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+# --------------------------------------------------------------------------
+# Mypy
+# --------------------------------------------------------------------------
+[tool.mypy]
+python_version = "3.12"
+strict = true
+ignore_missing_imports = true
+namespace_packages = true
+exclude = ["scripts/", "tests/"]
+
+# --------------------------------------------------------------------------
+# Pytest
+# --------------------------------------------------------------------------
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+addopts = "-v --tb=short"
+
+# --------------------------------------------------------------------------
+# Bandit
+# --------------------------------------------------------------------------
+[tool.bandit]
+skips = ["B101", "B311", "B603", "B607"]
+exclude_dirs = ["tests", ".venv", "dist"]

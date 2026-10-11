@@ -1,0 +1,32 @@
+name: 🧪 Lab feedback
+description: Report an issue or suggestion for a specific lab
+title: "[Lab N] <short summary>"
+labels: ["lab-feedback"]
+body:
+  - type: dropdown
+    id: lab
+    attributes:
+      label: Which lab?
+      options:
+        - "Lab 0 — Environment & GitHub Models"
+        - "Lab 1 — First Zava agent"
+        - "Lab 2 — RAG (AI Search + pgvector)"
+        - "Lab 3 — Deploy to Azure (Container Apps)"
+        - "Lab 4 — Data agents (Cosmos DB)"
+        - "Lab 5 — Trust, safety & observability"
+        - "Lab 6 — Capstone (agents, skills, MCP, evidence)"
+    validations:
+      required: true
+  - type: dropdown
+    id: track
+    attributes:
+      label: Track
+      options: ["Python", ".NET (C#)", "Both / N/A"]
+    validations:
+      required: true
+  - type: textarea
+    id: detail
+    attributes:
+      label: What happened / what would you improve?
+    validations:
+      required: true

@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 📘 Advanced Specialization controls (source)
+    url: https://github.com/NikoMix/specialization-ai-apps
+    about: The Module A/B audit control definitions this microhack maps to.
+  - name: 🧑‍🏫 Facilitator Guide
+    url: https://github.com/NikoMix/microhack-ai-apps/tree/main/docs/facilitator-guide
+    about: Train-the-Trainer timing, talk tracks, and troubleshooting.
