@@ -17,8 +17,8 @@
     "format": "prettier --write 'src/**/*.ts' 'smoke-test.mjs'"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.29.0",
-    "express": "^4.22.2",
+    "@modelcontextprotocol/sdk": "^1.31.0",
+    "express": "^4.22.3",
     "zod": "^3.25.76"
   },
   "devDependencies": {
