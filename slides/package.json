@@ -10,6 +10,6 @@
     "build:pptx": "marp zava-microhack-deck.md -o ../site/slides/zava-microhack-deck.pptx --pptx"
   },
   "devDependencies": {
-    "@marp-team/marp-cli": "4.4.0"
+    "@marp-team/marp-cli": "4.5.1"
   }
 }
